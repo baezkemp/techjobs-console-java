@@ -2,6 +2,7 @@ package org.launchcode.techjobs.console;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -11,7 +12,7 @@ public class TechJobs {
 
     private static Scanner in = new Scanner(System.in);
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         // Initialize our field map with key/name pairs
         HashMap<String, String> columnChoices = new HashMap<>();
@@ -103,7 +104,7 @@ public class TechJobs {
                 validChoice = true;
             }
 
-        } while(!validChoice);
+        } while (!validChoice);
 
         return choiceKeys[choiceIdx];
     }
@@ -111,28 +112,19 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
         //loop over someJobs which is a HashMap so it has key and value pairs
-      if(someJobs.size() == 0){
-          System.out.println("No jobs fit your search. " +
-                  "Please try the search again with different parameters.");
-      } else {
-          for (int i = 0; i < someJobs.size(); i++) {
-              HashMap<String, String> jobInfo = someJobs.get(i);
-              String name = jobInfo.get("name");
-              String employer = jobInfo.get("employer");
-              String location = jobInfo.get("location");
-              String positionType = jobInfo.get("position type");
-              String coreCompetency = jobInfo.get("core competency");
-
-              System.out.println("*****" +
-                      "\nPosition Type: " + positionType +
-                      "\nName: " + name +
-                      "\nEmployer: " + employer +
-                      "\nLocation: " + location +
-                      "\nCore Competency: " + coreCompetency +
-                      "\n*****" +
-                      "\n");
-          }
-      }
-        //System.out.println("printJobs is not implemented yet");
+        if (someJobs.size() == 0) {
+            System.out.println("No jobs fit your search. " +
+                    "Please try the search again with different parameters.");
+        } else {
+            for (int i = 0; i < someJobs.size(); i++) {
+                Map<String, String> jobInfo = someJobs.get(i);
+                System.out.println("*****");
+                for (Map.Entry<String, String> job : jobInfo.entrySet()) {
+                    System.out.println(job.getKey() + ": " + job.getValue());
+                }
+                System.out.println("*****\n");
+            }
+            //System.out.println("printJobs is not implemented yet");
+        }
     }
 }
