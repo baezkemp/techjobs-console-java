@@ -119,9 +119,11 @@ public class TechJobs {
             for (int i = 0; i < someJobs.size(); i++) {
                 Map<String, String> jobInfo = someJobs.get(i);
                 System.out.println("*****");
+
                 for (Map.Entry<String, String> job : jobInfo.entrySet()) {
                     System.out.println(job.getKey() + ": " + job.getValue());
                 }
+
                 System.out.println("*****\n");
             }
             //System.out.println("printJobs is not implemented yet");
