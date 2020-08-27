@@ -60,10 +60,11 @@ public class TechJobs {
                 // What is their search term?
                 System.out.println("\nSearch term: ");
                 String searchTermFromUser = in.nextLine();
+                //to lowercase so it's not a case sensitive search
                 String searchTerm = searchTermFromUser.toLowerCase();
                 if (searchField.equals("all")) {
                     printJobs(JobData.findByValue(searchTerm));
-//                    System.out.println("Search all fields not yet implemented.");
+                    //System.out.println("Search all fields not yet implemented.");
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                 }

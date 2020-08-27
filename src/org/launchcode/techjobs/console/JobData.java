@@ -74,7 +74,7 @@ public class JobData {
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
         for (HashMap<String, String> row : allJobs) {
-
+            //to lowercase so it's not a case sensitive search
             String aValue = row.get(column).toLowerCase();
 
             if (aValue.contains(value)) {
@@ -94,6 +94,7 @@ public class JobData {
        for (HashMap<String, String> row : allJobs) {
 
             for (String key : row.keySet()) {
+                //to lowercase so it's not a case sensitive search
                 String value = row.get(key).toLowerCase();
 
                 if ((value.contains(field)) && !jobs.contains(row)) {
